@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Seleccionar Productos</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("wGGXbjw0SnUFnyV2T");
+        })();
+    </script>
+</head>
+<body>
+    <h1>Haz tu Pedido</h1>
+    <form id="pedidoForm">
+        <!-- Aquí va la lista de productos como en el código original -->
+        <!-- Se pueden agregar las secciones de productos y las funciones de JavaScript necesarias para manejarlas -->
+        <div class="product-group">
+            <div class="toggle-button" onclick="toggleProducts(this)">
+                <span>Pizzas Napolitanas</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="product-list" style="display: none;">
+                <div class="product" data-precio="7000">
+                    <span class="product-name">Margherita ($7000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyMargherita')">-</button>
+                        <input type="text" id="qtyMargherita" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyMargherita')">+</button>
+                        
+                    </div>
+                </div>
+
+                <div class="product" data-precio="8000">
+                    <span class="product-name">Pepperoni ($8000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyPepperoni')">-</button>
+                        <input type="text" id="qtyPepperoni" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyPepperoni')">+</button>
+                    </div>
+                </div>
+
+                <div class="product" data-precio="8000">
+                    <span class="product-name">4 formaggi ($8000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qty4formaggi')">-</button>
+                        <input type="text" id="qty4formaggi" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qty4formaggi')">+</button>
+                    </div>
+                </div>
+
+                <div class="product" data-precio="8000">
+                    <span class="product-name">Rucula y Jamon crudo ($8000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyRuculaJamon')">-</button>
+                        <input type="text" id="qtyRuculaJamon" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyRuculaJamon')">+</button>
+                    </div>
+                </div>
+
+                <div class="product" data-precio="8000">
+                    <span class="product-name">Fugazza ($8000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyFugazza')">-</button>
+                        <input type="text" id="qtyFugazza" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyFugazza')">+</button>
+                    </div>
+                </div>
+
+                <div class="product" data-precio="8000">
+                    <span class="product-name">Mortadela Con Pistacho ($8000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyMortadela')">-</button>
+                        <input type="text" id="qtyMortadela" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyMortadela')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-group">
+            <div class="toggle-button" onclick="toggleProducts(this)">
+                <span>Focacceria</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="product-list" style="display: none;">
+                <div class="product" data-precio="7000">
+                    <span class="product-name">Mortadela con Pistacho ($7000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyFocacceria1')">-</button>
+                        <input type="text" id="qtyFocacceria1" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyFocacceria1')">+</button>
+                    </div>
+                </div>
+
+                <div class="product" data-precio="7000">
+                    <span class="product-name">Rucula y jamon crudo ($7000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyFocacceria2')">-</button>
+                        <input type="text" id="qtyFocacceria2" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyFocacceria2')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-group">
+            <div class="toggle-button" onclick="toggleProducts(this)">
+                <span>Paninis</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="product-list" style="display: none;">
+                <div class="product" data-precio="7000">
+                    <span class="product-name">Rucula y jamon crudo ($7000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyPanini')">-</button>
+                        <input type="text" id="qtyPanini" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyPanini')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-group">
+            <div class="toggle-button" onclick="toggleProducts(this)">
+                <span>Calzones Napolitanos</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="product-list" style="display: none;">
+                <div class="product" data-precio="5000">
+                    <span class="product-name">Clasico ($5000)</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyCalzone')">-</button>
+                        <input type="text" id="qtyCalzone" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyCalzone')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-group">
+            <div class="toggle-button" onclick="toggleProducts(this)">
+                <span>Promociones</span>
+                <span class="arrow">▶</span>
+            </div>
+            <div class="product-list" style="display: none;">
+                <div class="product" data-precio="5000">
+                    <span class="product-name">Clasico</span>
+                    <div class="quantity-controls">
+                        <button type="button" onclick="decreaseQuantity('qtyCalzone')">-</button>
+                        <input type="text" id="qtyCalzone" class="quantity" value="0" readonly>
+                        <button type="button" onclick="increaseQuantity('qtyCalzone')">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="total">Total: $0</div>
+    </form>
+    
+    <button onclick="guardarDatos()">Siguiente</button>
+
+    <script>
+        let total = 0;
+    
+        function toggleProducts(button) {
+            const productList = button.nextElementSibling;
+            if (productList.style.display === 'none' || productList.style.display === '') {
+                productList.style.display = 'block';
+                button.querySelector('.arrow').textContent = '▼'; // Cambia la flecha hacia abajo
+            } else {
+                productList.style.display = 'none';
+                button.querySelector('.arrow').textContent = '▶'; // Cambia la flecha hacia la derecha
+            }
+        }
+    
+        function increaseQuantity(id) {
+            const qtyInput = document.getElementById(id);
+            let quantity = parseInt(qtyInput.value);
+            const precio = parseInt(qtyInput.closest('.product').getAttribute('data-precio'));
+    
+            quantity += 1;
+            qtyInput.value = quantity;
+            total += precio;
+            updateTotal();
+        }
+    
+        function decreaseQuantity(id) {
+            const qtyInput = document.getElementById(id);
+            let quantity = parseInt(qtyInput.value);
+            const precio = parseInt(qtyInput.closest('.product').getAttribute('data-precio'));
+    
+            if (quantity > 0) {
+                quantity -= 1;
+                qtyInput.value = quantity;
+                total -= precio;
+                updateTotal();
+            }
+        }
+    
+        function updateTotal() {
+            document.getElementById('total').innerText = `Total: $${total}`;
+        }
+    
+        function guardarDatos() {
+            const productos = {
+                "Margherita": document.getElementById('qtyMargherita').value,
+                "Pepperoni": document.getElementById('qtyPepperoni').value,
+                "4 formaggi": document.getElementById('qty4formaggi').value,
+                "Rucula y Jamon crudo": document.getElementById('qtyRuculaJamon').value,
+                "Fugazza": document.getElementById('qtyFugazza').value,
+                "Mortadela Con Pistacho y Pesto": document.getElementById('qtyMortadela').value,
+                "Mortadela con Pistacho": document.getElementById('qtyFocacceria1').value,
+                "Rucula y jamon crudo": document.getElementById('qtyFocacceria2').value,
+                "Rucula y jamon crudo (Paninis)": document.getElementById('qtyPanini').value,
+                "Clasico": document.getElementById('qtyCalzone').value
+            };
+    
+            const productosDetalles = Object.keys(productos)
+                .filter(producto => productos[producto] > 0)
+                .map(producto => `${producto}: ${productos[producto]}`)
+                .join(", ");
+                    
+            localStorage.setItem('productos', productosDetalles);
+            localStorage.setItem('total', total);
+            window.location.href = 'detalles.html';
+        }
+    </script>
+    
+</body>
+</html>
