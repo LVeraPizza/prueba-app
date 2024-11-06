@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Desplegable</title>
+    <style>
+        /* Estilos generales */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Barra superior */
+        .top-bar {
+            background-color: #333;
+            color: white;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Menú de hamburguesa */
+        .menu-icon {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .menu-icon div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+        }
+
+        /* Menú desplegable */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #333;
+            color: white;
+            width: 50%;
+            height: 100%;
+            padding: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #555;
+        }
+
+        /* Mostrar menú desplegable al hacer clic */
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="menu-icon" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Menú desplegable -->
+    <div id="dropdownMenu" class="dropdown-menu">
+        <a href="#">Inicio</a>
+        <a href="#">Carta</a>
+        <a href="#">Promociones</a>
+        <a href="#">Productos</a>
+        <a href="#">Carrito</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('dropdownMenu');
+            menu.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

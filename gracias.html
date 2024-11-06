@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gracias por tu Pedido</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de enlazar el CSS -->
+    <style>
+        body {
+            background-color: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+            color: white; /* Color del texto */
+            margin: 0; /* Sin márgenes */
+            height: 100vh; /* Altura completa de la ventana */
+            display: flex; /* Usar flexbox para centrar */
+            align-items: center; /* Centrar verticalmente */
+            justify-content: center; /* Centrar horizontalmente */
+        }
+
+        #success-message {
+            text-align: center; /* Centrar el texto */
+            max-width: 300px; /* Limitar el ancho del contenedor */
+            background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semitransparente */
+            padding: 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra suave */
+        }
+
+        h1 {
+            font-size: 24px; /* Tamaño de fuente grande para el encabezado */
+            margin-bottom: 10px; /* Espaciado inferior del encabezado */
+        }
+
+        #success-message img {
+            max-width: 100%; /* Asegurarse de que la imagen no exceda el ancho del contenedor */
+            height: auto; /* Mantener la proporción de la imagen */
+            margin-bottom: 20px; /* Espaciado inferior */
+        }
+
+        #back-button {
+            padding: 10px 20px; /* Espaciado del botón */
+            background-color: green; /* Color de fondo */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambiar cursor al pasar por encima */
+            margin-top: 20px; /* Espaciado superior */
+        }
+
+        #back-button:hover {
+            background-color: darkgreen; /* Color al pasar el mouse */
+        }
+    </style>
+</head>
+<body>
+    <div id="success-message">
+        <h1>¡Tu Pedido Ya Fue tomado!</h1> <!-- Encabezado grande -->
+        <img src="img/scooter.gif" alt="Éxito">
+        <button id="back-button">Volver</button>
+    </div>
+
+    <script>
+        // Evento para el botón de volver
+        document.getElementById('back-button').addEventListener('click', function() {
+            // Vaciar el carrito en localStorage
+            localStorage.removeItem('cart');
+            // Redirigir a index.html
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
